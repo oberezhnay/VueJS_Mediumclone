@@ -43,7 +43,11 @@
           <span>Read more...</span>
         </router-link>
       </div>
-      PAGINATION
+      <mcv-pagination 
+        :total="total" 
+        :limit="limit" 
+        :current-page="currentPage"
+      />
     </div>
   </div>
 </template>
@@ -51,6 +55,7 @@
 <script>
 import {mapState} from 'vuex'
 import {actionTypes} from '@/store/modules/feed'
+import McvPagination from '@/components/Pagination.vue'
 
 export default {
   name: 'McvFeed',
@@ -58,6 +63,17 @@ export default {
     apiUrl: {
       type: String,
       required: true
+    }
+  },
+  components: {
+    McvPagination
+  },
+  data() {
+    return {
+      total: 500,
+      limit: 10,
+      currentPage: 5,
+      url: '/'
     }
   },
   computed: {
