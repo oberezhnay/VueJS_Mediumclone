@@ -7,13 +7,13 @@ const state = {
 }
 
 export const mutationTypes = {
-  getFeedStart: '[auth] getFeedStart',
-  getFeedSuccess: '[auth] getFeedSuccess',
-  getFeedFailure: '[auth] getFeedFailure'
+  getFeedStart: '[feed] getFeedStart',
+  getFeedSuccess: '[feed] getFeedSuccess',
+  getFeedFailure: '[feed] getFeedFailure'
 }
 
 export const actionTypes = {
-  getFeed: '[auth] getFeed'
+  getFeed: '[feed] getFeed'
 }
 
 const mutations = {
