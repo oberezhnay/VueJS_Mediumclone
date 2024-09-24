@@ -41,7 +41,7 @@ const mutations = {
 const actions = {
   [actionTypes.getArticle](context, {slug}) {
     return new Promise(resolve => {
-      context.commit(mutationTypes.getArticleStart, slug)
+      context.commit(mutationTypes.getArticleStart)
       articleApi
         .getArticle(slug)
         .then(article => {
@@ -56,7 +56,7 @@ const actions = {
 
   [actionTypes.deleteArticle](context, {slug}) {
     return new Promise(resolve => {
-      context.commit(mutationTypes.deleteArticleStart, slug)
+      context.commit(mutationTypes.deleteArticleStart)
       articleApi
         .deleteArticle(slug)
         .then(() => {

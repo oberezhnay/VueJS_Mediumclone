@@ -1,7 +1,7 @@
 <template>
   <div>
-    <mcv-loading v-if="isLoading"/>
-    <mcv-error-message v-if="error"/>
+    <mcv-loading v-if="isLoading" />
+    <mcv-error-message v-if="error" />
 
     <div v-if="feed">
       <div 
@@ -28,7 +28,11 @@
             <span class="date">{{ article.createdAt }}</span>
           </div>
           <div class="pull-xs-right">
-            ADD TO FAVORITES
+            <mcv-add-to-favorites
+              :is-favorited="article.favorited"
+              :article-slug="article.slug"
+              :favorites-count="articleFavoritesCount" 
+            />
           </div>
         </div>
         <router-link 
@@ -64,6 +68,7 @@ import McvPagination from '@/components/Pagination'
 import McvLoading from '@/components/Loading'
 import McvErrorMessage from '@/components/ErrorMessage'
 import McvTagList from '@/components/TagList'
+import McvAddToFavorites from '@/components/AddToFavorites'
 
 export default {
   name: 'McvFeed',
@@ -71,7 +76,8 @@ export default {
     McvPagination,
     McvLoading,
     McvErrorMessage,
-    McvTagList
+    McvTagList,
+    McvAddToFavorites
   },
   props: {
     apiUrl: {

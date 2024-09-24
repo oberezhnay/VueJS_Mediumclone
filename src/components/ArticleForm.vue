@@ -2,8 +2,8 @@
   <div class="editor-page">
     <div class="container page">
       <div class="row">
-        <div class="col-md-10 offset-md-q col-xs-12">
-          <mcv-validation-errors v-if="errors" />
+        <div class="col-md-10 offset-md-1 col-xs-12">
+          <mcv-validation-errors v-if="errors" :validation-errors="errors" />
           <form @submit.prevent="onSubmit">
             <fieldset>
               <fieldset class="form-group">
@@ -80,10 +80,10 @@ export default {
   },
   data() {
     return {
-      tytle: '',
-      description: '',
-      body: '',
-      tagList: ''
+      title: this.initialValues.title,
+      description: this.initialValues.description,
+      body: this.initialValues.body,
+      tagList: this.initialValues.tagList.join(' ')
     }
   },
   methods: {
@@ -92,7 +92,7 @@ export default {
         title: this.title,
         description: this.description,
         body: this.body,
-        tagList: this.tagList
+        tagList: this.tagList.split(' ')
       }
       this.$emit('articleSubmit', form)
     }
